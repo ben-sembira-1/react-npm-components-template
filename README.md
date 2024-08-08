@@ -206,4 +206,26 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	+       )
 	+}
 	```
-
+1. Shrink the bundle size by adding external dependencies (From 256KB to 0.96KB):
+	```diff
+	+++ vite.config.ts
+	@@ -14,6 +14,16 @@ export default defineConfig({
+	     lib: {
+	       entry: resolve(__dirname, 'lib/main.ts'),
+	       formats: ['es']
+	-    }
+	-  }
+	+    },
+	+    rollupOptions: {
+	+      external: [
+	+        'react',
+	+        'react/jsx-runtime',
+	+        '@mui/material',
+	+        '@emotion/react',
+	+        '@emotion/styled',
+	+        '@mui/icons-material',
+	+      ],
+	+    },
+	+  },
+	 })
+	```
