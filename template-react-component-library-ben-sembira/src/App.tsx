@@ -14,7 +14,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React Npm Package</h1>
+      <h1>Vite + React - React component library package preview</h1>
       <CustomCounter />
     </>
   )
