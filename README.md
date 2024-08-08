@@ -229,3 +229,35 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	+  },
 	 })
 	```
+1. For adding styles see https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma#4-add-some-styles and https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma#side-effects
+1. Change the entrypoint name to main.js
+	```diff
+	+++ vite.config.ts
+	@@ -24,6 +24,10 @@ export default defineConfig({
+	         '@emotion/styled',
+	         '@mui/icons-material',
+	       ],
+	+      output: {
+	+        assetFileNames: 'assets/[name][extname]',
+	+        entryFileNames: '[name].js',
+	+      }
+	     },
+	   },
+	 })
+	```
+1. Add entrypoints to the package.json
+	```diff
+	+++ package.json
+	@@ -3,6 +3,11 @@
+	   "private": true,
+	   "version": "0.0.0",
+	   "type": "module",
+	+  "main": "dist/main.js",
+	+  "types": "dist/lib/main.d.ts",
+	+  "files": [
+	+    "dist"
+	+  ],
+	   "scripts": {
+	     "dev": "vite",
+	     "build": "tsc --p ./tsconfig-build.json && vite build",
+	```

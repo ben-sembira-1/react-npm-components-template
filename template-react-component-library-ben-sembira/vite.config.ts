@@ -24,6 +24,10 @@ export default defineConfig({
         '@emotion/styled',
         '@mui/icons-material',
       ],
+      output: {
+        assetFileNames: 'assets/[name][extname]',
+        entryFileNames: '[name].js',
+      }
     },
   },
 })
