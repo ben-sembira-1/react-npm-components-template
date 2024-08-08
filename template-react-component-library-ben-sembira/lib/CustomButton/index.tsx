@@ -9,7 +9,7 @@ export function CustomButton({ value, hint, onClick }: CustomButtonProps) {
 	return (
 		<Button onClick={onClick}>
 			<Stack>
-				<Typography variant="h3">{value}</Typography>
+				<Typography variant="h6">{value}</Typography>
 				<Typography variant="caption">{hint}</Typography>
 			</Stack>
 		</Button>

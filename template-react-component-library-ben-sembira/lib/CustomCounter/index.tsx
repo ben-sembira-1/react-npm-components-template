@@ -6,8 +6,8 @@ import { CustomButton } from "../CustomButton";
 export function CustomCounter() {
 	const [counter, setCounter] = useState(0)
 	return (
-		<Stack>
-			<Typography variant="h1">The Best Counter</Typography>
+		<Stack spacing={1}>
+			<Typography variant="h3">The Best Counter</Typography>
 			<Typography variant="body1">Current counter value: {counter}</Typography>
 			<CustomButton
 				value="Add one to the counter!"
