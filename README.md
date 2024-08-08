@@ -69,3 +69,25 @@ A template for creating a react components library as npm package
 	```
 1. Copy the file `vite-env.d.ts` from src to `lib` to make the vite-corresponding types complete.
 1. Add `copyPublicDir: false,` to `vite.config.ts` to disable packing the public directory in the build products.
+1. Add types to the library using [vite-plugin-ts](https://github.com/qmhc/vite-plugin-dts).
+	1. Install the plugin with `npm i --save-dev vite-plugin-dts`
+	1. Use the plugin in `vite.config.ts` to generate types to the lib folder
+		```diff
+		+++ vite.config.ts
+		@@ -1,10 +1,14 @@
+		 import { defineConfig } from 'vite'
+		 import { resolve } from "path"
+		 import react from '@vitejs/plugin-react'
+		+import dts from 'vite-plugin-dts'
+		
+		 // https://vitejs.dev/config/
+		 export default defineConfig({
+		-  plugins: [react()],
+		+  plugins: [
+		+    react(),
+		+    dts({ include: ['lib'] })
+		+  ],
+		   build: {
+		     copyPublicDir: false,
+		     lib: {
+		```
