@@ -262,3 +262,17 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	     "build": "tsc --p ./tsconfig-build.json && vite build",
 	```
 1. To guarantee that your changes are always built before the package is published: https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma#ensure-that-the-package-is-built
+1. Make the package public by changing the package.json
+	```diff
+	+++ package.json
+	@@ -1,7 +1,7 @@
+	 {
+	   "name": "template-react-component-library-ben-sembira",
+	-  "private": true,
+	+  "private": false,
+	   "version": "0.0.0",
+	   "type": "module",
+	   "main": "dist/template-react-component-library-ben-sembira.js",
+	   "types": "dist/lib/main.d.ts",
+	```
+1. Bump the version using npm-version: `npm version patch` (Bumping the last version digit, see [npm-version](https://docs.npmjs.com/cli/v8/commands/npm-version))
