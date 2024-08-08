@@ -119,7 +119,7 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	+   ]
 	+}
 	```
-1. Update the build script in the `package.json` to transpile and build according to our tsconfig-build.json instead of the standard tsconfig.json one.
+1. Update the build script in the `package.json` to transpile and build according to our tsconfig-build.json instead of the standard tsconfig.json one. (I am not sure what is the -b but it does not work with it.)
 	```diff
 	+++ b/template-react-component-library-ben-sembira/package.json
 	@@ -5,7 +5,7 @@
