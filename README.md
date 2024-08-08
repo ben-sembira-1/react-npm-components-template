@@ -68,3 +68,4 @@ A template for creating a react components library as npm package
 	   },
 	```
 1. Copy the file `vite-env.d.ts` from src to `lib` to make the vite-corresponding types complete.
+1. Add `copyPublicDir: false,` to `vite.config.ts` to disable packing the public directory in the build products.
