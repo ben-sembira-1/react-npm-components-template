@@ -104,3 +104,52 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 		     copyPublicDir: false,
 		     lib: {
 		```
+1. Add 2 components using MUI (Create whatever components you like)
+	1. install MUI using `npm install @mui/material @emotion/react @emotion/styled @mui/icons-material`
+	1. Write those 2 components
+	```diff
+	+++ lib/CustomButton/index.tsx
+	@@ -0,0 +1,17 @@
+	+import { Button, Stack, Typography } from "@mui/material";
+	+
+	+type CustomButtonProps = {
+	+       value: string;
+	+       hint: string;
+	+       onClick: () => void;
+	+}
+	+export function CustomButton({ value, hint, onClick }: CustomButtonProps) {
+	+       return (
+	+               <Button onClick={onClick}>
+	+                       <Stack>
+	+                               <Typography variant="h3">{value}</Typography>
+	+                               <Typography variant="caption">{hint}</Typography>
+	+                       </Stack>
+	+               </Button>
+	+       )
+	+}
+
+	+++ lib/CustomCounter/index.tsx
+	@@ -0,0 +1,21 @@
+	+import { Stack, Typography } from "@mui/material";
+	+import { useState } from "react";
+	+import { CustomButton } from "../CustomButton";
+	+
+	+
+	+export function CustomCounter() {
+	+       const [counter, setCounter] = useState(0)
+	+       return (
+	+               <Stack>
+	+                       <Typography variant="h1">The Best Counter</Typography>
+	+                       <Typography variant="body1">Current counter value: {counter}</Typography>
+	+                       <CustomButton
+	+                               value="Add one to the counter!"
+	+                               hint={`The value will change to ${counter + 1}`}
+	+                               onClick={
+	+                                       () => setCounter((prev) => prev + 1)
+	+                               }
+	+                       />
+	+               </Stack>
+	+       )
+	+}
+	```
+
