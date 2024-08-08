@@ -276,3 +276,6 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	   "types": "dist/lib/main.d.ts",
 	```
 1. Bump the version using npm-version: `npm version patch` (Bumping the last version digit, see [npm-version](https://docs.npmjs.com/cli/v8/commands/npm-version))
+1. Publish the package
+	1. `npm login`
+	1. `npm publish`
