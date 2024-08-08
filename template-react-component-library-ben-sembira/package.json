@@ -1,9 +1,9 @@
 {
   "name": "template-react-component-library-ben-sembira",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
-  "main": "dist/template-react-component-library-ben-sembira.js",
+  "main": "dist/main.js",
   "types": "dist/lib/main.d.ts",
   "files": [
     "dist"

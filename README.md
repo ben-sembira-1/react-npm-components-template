@@ -272,7 +272,7 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	+  "private": false,
 	   "version": "0.0.0",
 	   "type": "module",
-	   "main": "dist/template-react-component-library-ben-sembira.js",
+	   "main": "dist/main.js",
 	   "types": "dist/lib/main.d.ts",
 	```
 1. Bump the version using npm-version: `npm version patch` (Bumping the last version digit, see [npm-version](https://docs.npmjs.com/cli/v8/commands/npm-version))
