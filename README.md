@@ -113,10 +113,10 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	+++ tsconfig-build.json
 	@@ -0,0 +1,6 @@
 	+{
-	+       "extends": "./tsconfig.json",
-	+       "include": [
-	+               "lib"
-	+       ]
+	+   "extends": "./tsconfig.json",
+	+   "include": [
+	+       "lib"
+	+   ]
 	+}
 	```
 1. Update the build script in the `package.json` to transpile and build according to our tsconfig-build.json instead of the standard tsconfig.json one.
