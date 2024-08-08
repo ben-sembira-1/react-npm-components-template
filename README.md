@@ -11,6 +11,14 @@ A template for creating a react components library as npm package
 	✔ Select a variant: › TypeScript
 	```
 1. Create a new `lib` folder next to the `src` folder with a file named `main.ts` (which will be the entry point of the library)
+	1. For testing purposes you may add a simple typed function in to it.
+	```diff
+	+++ lib/main.ts
+	@@ -0,0 +1,3 @@
+	+export function helloAnything(thing: string): string {
+	+  return `Hello ${thing}!`
+	+}
+	```
 1. Add the lib entrypoint in the `vite.config.ts` configuration file
 	1. `npm i path`
 	1. `npm i @types/node -D`
@@ -71,7 +79,8 @@ A template for creating a react components library as npm package
 1. Copy the file `vite-env.d.ts` from src to `lib` to make the vite-corresponding types complete.
 1. Add `copyPublicDir: false,` to `vite.config.ts` to disable packing the public directory in the build products.
 1. Add types to the library using [vite-plugin-ts](https://github.com/qmhc/vite-plugin-dts).
-	1. Install the plugin with `npm i --save-dev vite-plugin-dts`
+	1. Install the plugin with `npm i --save-dev vite-plugin-dts@3.7.3`
+		1. When using the most recent version (4.0.1) a main.d.ts file was not generated in the dist folder. I do not know if the new version embeds types in an other way or if it is a bug, so I downgraded to a version I so in the internet that works.
 	1. Use the plugin in `vite.config.ts` to generate types to the lib folder
 		```diff
 		+++ vite.config.ts
