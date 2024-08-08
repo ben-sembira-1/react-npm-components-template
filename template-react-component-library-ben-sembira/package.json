@@ -8,6 +8,15 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ben-sembira-1/react-npm-components-template.git"
+  },
+  "author": {
+    "name": "Ben Sembira",
+    "email": "ben.sembira.dev@gmail.com",
+    "url": "https://www.linkedin.com/in/ben-sembira/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
