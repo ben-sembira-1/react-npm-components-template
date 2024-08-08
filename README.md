@@ -43,17 +43,71 @@ Thank you very much for a precise and descriptive tutorial, it is the best I fou
 	+  }
 	})
 	```
-1. Add `lib` to the typescript scope in th tsconfig.json (I added it to the tsconfig.app.json for not changing the basic structure but this file may be removed as well)
-	```diff
-	+++ tsconfig.app.json
-	@@ -23,5 +23,5 @@
-	     "noUnusedParameters": true,
-	     "noFallthroughCasesInSwitch": true
-	   },
-	-  "include": ["src"]
-	+  "include": ["src", "lib"]
-	 }
-	```
+1. Add `lib` to the typescript scope in th tsconfig.json (Move all tsconfig.app.json to tsconfig.json and remove the `"noEmit": true` from tsconfig.node.json)
+	1. Move all tsconfig.app.json content to tsconfig.json
+		```diff
+		+++ tsconfig.json
+		@@ -1,9 +1,31 @@
+		 {
+		+  "compilerOptions": {
+		+    "composite": true,
+		+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+		+    "target": "ES2020",
+		+    "useDefineForClassFields": true,
+		+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+		+    "module": "ESNext",
+		+    "skipLibCheck": true,
+		+
+		+    /* Bundler mode */
+		+    "moduleResolution": "bundler",
+		+    "allowImportingTsExtensions": true,
+		+    "resolveJsonModule": true,
+		+    "isolatedModules": true,
+		+    "moduleDetection": "force",
+		+    "noEmit": true,
+		+    "jsx": "react-jsx",
+		+
+		+    /* Linting */
+		+    "strict": true,
+		+    "noUnusedLocals": true,
+		+    "noUnusedParameters": true,
+		+    "noFallthroughCasesInSwitch": true
+		+  },
+		+  "include": ["src"],
+		   "files": [],
+		   "references": [
+		-    {
+		-      "path": "./tsconfig.app.json"
+		-    },
+		     {
+		       "path": "./tsconfig.node.json"
+		     }
+		```
+	1. Remove the `"noEmit": true` from tsconfig.node.json:
+		```diff
+		+++ tsconfig.node.json
+		@@ -7,7 +7,7 @@
+		     "moduleResolution": "bundler",
+		     "allowSyntheticDefaultImports": true,
+		     "strict": true,
+		-    "noEmit": true
+		   },
+		   "include": ["vite.config.ts"]
+		 }
+		```
+	1. Add `lib` to the typescript scope in th tsconfig.json:
+		```diff
+		+++ tsconfig.json
+		@@ -23,7 +23,7 @@
+		     "noUnusedParameters": true,
+		     "noFallthroughCasesInSwitch": true
+		   },
+		-  "include": ["src"],
+		+  "include": ["src", "lib"],
+		   "files": [],
+		   "references": [
+		     {
+		```
 1. Create a new tsconfig file for the build phase that extends the tsconfig.json but overrides the "include" field to use only `lib`
 	```diff
 	+++ tsconfig-build.json
